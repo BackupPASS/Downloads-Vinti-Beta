@@ -51,9 +51,9 @@ function createNotificationCard(platform, title, desc, downloadLink, requirement
 function showPlatformNotification() {
     const userAgent = navigator.userAgent;
     let notification = null;
-    let downloadLink = "";
+    if (userAgent.indexOf('Windows') !== -1) {
         notification = createNotificationCard('windows', 'Windows Users', 'There is currently no available Beta version of Vinti.', null, 'https://plingifyplug.com');
-      } else if (userAgent.indexOf('Mac') !== -1) {
+    } else if (userAgent.indexOf('Mac') !== -1) {
         notification = createNotificationCard('mac', 'Mac Users', 'The Beta version of Vinti is not available on MacOS.', null, 'https://plingifyplug.com');
     } else if (userAgent.indexOf('iPhone') !== -1) {
         notification = createNotificationCard('iphone', 'iPhone Users', 'This software is not available for download on iPhone.', null, 'https://plingifyplug.com');
@@ -66,6 +66,8 @@ function showPlatformNotification() {
     } else {
         notification = createNotificationCard('unknown', 'Unsupported Device', 'This software is not available on your device.', null, null);
     }
+}
+
 
     notificationContainer.appendChild(notification);
     notification.classList.add('card-show');
