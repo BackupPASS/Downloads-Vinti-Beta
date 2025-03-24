@@ -51,6 +51,7 @@ function createNotificationCard(platform, title, desc, downloadLink, requirement
 function showPlatformNotification() {
     const userAgent = navigator.userAgent;
     let notification = null;
+
     if (userAgent.indexOf('Windows') !== -1) {
         notification = createNotificationCard('windows', 'Windows Users', 'There is currently no available Beta version of Vinti.', null, 'https://plingifyplug.com');
     } else if (userAgent.indexOf('Mac') !== -1) {
@@ -66,8 +67,6 @@ function showPlatformNotification() {
     } else {
         notification = createNotificationCard('unknown', 'Unsupported Device', 'This software is not available on your device.', null, null);
     }
-}
-
 
     notificationContainer.appendChild(notification);
     notification.classList.add('card-show');
@@ -135,25 +134,14 @@ function checkSpeed() {
             startTime = new Date().getTime();
         };
 
-        xhr.onload = function () {
+        xhr.onloadend = function () {
             endTime = new Date().getTime();
-            var duration = (endTime - startTime) / 1000;
-            var fileSize = xhr.response.size / 1024 / 1024;
-            var speedMbps = (fileSize * 8) / duration;
-            if (speedMbps < 5) {
-                window.location.href = 'https://backuppass.github.io/Slow-Wifi';
-            }
+            var duration = endTime - startTime;
+            alert('Download speed: ' + duration + 'ms');
         };
 
-        xhr.onerror = function () {
-            window.location.href = 'https://backuppass.github.io/Site-Crashed';
-        };
         xhr.send();
     }
 
     speedTest();
 }
-
-window.onload = function () {
-    checkSpeed();
-};
