@@ -109,39 +109,46 @@ document.cookie = "username=JohnDoe; path=/; secure; HttpOnly";
 
 let currentIndex = 0;
 const images = [
-    'image2.jpg',
+   'image2.jpg',
 ];
 
 const slideshow = document.getElementById('background-slideshow');
-
 function changeBackground(index) {
     slideshow.style.backgroundImage = `url(${images[index]})`;
-    currentIndex = index;
+   currentIndex = index;
 }
-
 changeBackground(0);
-
 function checkSpeed() {
     var testImageUrl = 'image2.jpg';
-    var startTime, endTime;
+   var startTime, endTime;
 
     function speedTest() {
-        var xhr = new XMLHttpRequest();
+      var xhr = new XMLHttpRequest();
         xhr.open('GET', testImageUrl, true);
-        xhr.responseType = 'blob';
+      xhr.responseType = 'blob';
 
-        xhr.onloadstart = function () {
-            startTime = new Date().getTime();
-        };
+      xhr.onloadstart = function () {
+         startTime = new Date().getTime();
+       };
 
-        xhr.onloadend = function () {
-            endTime = new Date().getTime();
-            var duration = endTime - startTime;
-            alert('Download speed: ' + duration + 'ms');
-        };
-
+        xhr.onload = function () {
+         endTime = new Date().getTime();
+           var duration = (endTime - startTime) / 1000;
+           var fileSize = xhr.response.size / 1024 / 1024;
+           var speedMbps = (fileSize * 8) / duration;
+        if (speedMbps < 5) {
+              window.location.href = 'https://backuppass.github.io/Slow-Wifi';
+         }
+       };
+     xhr.onerror = function () {
+        window.location.href = 'https://backuppass.github.io/Site-Crashed';
+    };
         xhr.send();
-    }
+   }
 
-    speedTest();
+   speedTest();
 }
+
+window.onload = function () {
+    checkSpeed();
+ };
