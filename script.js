@@ -1,3 +1,23 @@
+let currentIndex = 0;
+const images = [
+    'image2.jpg',
+];
+const slideshow = document.getElementById('background-slideshow');
+
+function changeBackground(index) {
+    slideshow.style.backgroundImage = `url(${images[index]})`;
+    currentIndex = index;
+}
+
+function nextBackground() {
+    currentIndex = (currentIndex + 1) % images.length;
+    changeBackground(currentIndex);
+}
+
+changeBackground(0);
+
+setInterval(nextBackground, 5000);
+
 const notificationContainer = document.getElementById('notification-container');
 let downloadBtn;
 
@@ -107,48 +127,3 @@ setTimeout(showCookieNotice, 1000);
 
 document.cookie = "username=JohnDoe; path=/; secure; HttpOnly";
 
-let currentIndex = 0;
-const images = [
-   'image2.jpg',
-];
-
-const slideshow = document.getElementById('background-slideshow');
-function changeBackground(index) {
-    slideshow.style.backgroundImage = `url(${images[index]})`;
-   currentIndex = index;
-}
-changeBackground(0);
-function checkSpeed() {
-    var testImageUrl = 'image2.jpg';
-   var startTime, endTime;
-
-    function speedTest() {
-      var xhr = new XMLHttpRequest();
-        xhr.open('GET', testImageUrl, true);
-      xhr.responseType = 'blob';
-
-      xhr.onloadstart = function () {
-         startTime = new Date().getTime();
-       };
-
-        xhr.onload = function () {
-         endTime = new Date().getTime();
-           var duration = (endTime - startTime) / 1000;
-           var fileSize = xhr.response.size / 1024 / 1024;
-           var speedMbps = (fileSize * 8) / duration;
-        if (speedMbps < 5) {
-              window.location.href = 'https://backuppass.github.io/Slow-Wifi';
-         }
-       };
-     xhr.onerror = function () {
-        window.location.href = 'https://backuppass.github.io/Site-Crashed';
-    };
-        xhr.send();
-   }
-
-   speedTest();
-}
-
-window.onload = function () {
-    checkSpeed();
- };
