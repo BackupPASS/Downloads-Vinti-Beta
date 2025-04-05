@@ -12,8 +12,8 @@
 <body>
 
     <div id="login-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:url('image2.jpg') no-repeat center center fixed; background-size:cover; display:flex; justify-content:center; align-items:center; z-index:9999;">
-        <h2 style="font-family: 'Alba', sans-serif; font-size:36px; font-weight:600; color:#fff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2>
-        <div style="background:#fff; padding:40px 30px; border-radius:12px; text-align:center; max-width:400px; width:100%; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+        <h2 class="TopText" style="font-family: 'Alba', sans-serif; font-size:36px; font-weight:600; color:#fff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2>
+        <div style="background:#fff; padding:40px 30px; border-radius:12px; text-align:center; max-width:400px; width:90%; box-sizing:border-box; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
             <h2 style="font-size:20px; font-weight:600; margin-bottom:20px; color:#333;">You'll need to login to your account to access Vinti Beta.</h2>
             <input type="email" id="email-login" placeholder="Email" style="margin-bottom:15px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
             <input type="password" id="password-login" placeholder="Password" style="margin-bottom:20px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
@@ -25,8 +25,8 @@
     </div>
     
     <div id="register-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:url('image2.jpg') no-repeat center center fixed; background-size:cover; display:flex; justify-content:center; align-items:center; z-index:9999; opacity:0; animation:fadeIn 0.5s forwards;">
-        <h2 style="font-family: 'Alba', sans-serif; font-size:36px; font-weight:600; color:#fff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2>
-        <div style="background:#fff; padding:40px 30px; border-radius:12px; text-align:center; max-width:400px; width:100%; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+      <h2 class="TopText" style="font-family: 'Alba'; font-size:36px; font-weight:600; color:#fff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2> 
+        <div style="background:#fff; padding:40px 30px; border-radius:12px; text-align:center; max-width:400px; width:90%; box-sizing:border-box; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
             <h2 style="font-size:20px; font-weight:600; margin-bottom:20px; color:#333;">You'll need to create an account to access Vinti Beta.</h2>
             <input type="email" id="email-register" placeholder="Email" style="margin-bottom:15px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
             <input type="password" id="password-register" placeholder="Password" style="margin-bottom:20px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
@@ -36,6 +36,8 @@
             <p style="margin-top:20px; font-size:14px; color:#555;">Already have an account? <a href="#" onclick="toggleForm('login')" style="color:#007bff; text-decoration:none;">Login here</a></p>
         </div>
     </div>
+    
+    
     
     <div id="auth-menu" style="position:fixed; top:10px; left:10px; z-index:1000;">
         <button id="auth-button" onclick="toggleDropdown()" style="padding:10px 14px; border-radius:25px; color:black; font-size:24px; border:none; cursor:pointer; background:none; box-shadow:none; display:flex; justify-content:center; align-items:center; width:30px; height:30px;">
