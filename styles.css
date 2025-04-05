@@ -18,14 +18,14 @@ body {
   src: url('ALBAS___.TTF') format('truetype');
 }
 .text-container {
-   display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
-   width: 100%;
-  min-height: 100vh;
+    width: 100%;
+    min-height: 100vh;
     padding-top: 40px;
-   box-sizing: border-box;
-}
+    box-sizing: border-box;
+  }
 
 .title-download {
    font-family: Albas;
@@ -267,6 +267,16 @@ a:hover {
  opacity: 0.8;
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; visibility: hidden; }
+    100% { opacity: 1; visibility: visible; }
+}
+
+@keyframes fadeOut {
+    100% { opacity: 1; visibility: visible; }
+    0% { opacity: 0; visibility: hidden; }
+}
+
   /* Responsive Styles */
 @media (max-width: 600px) {
      .text-container {
@@ -309,4 +319,22 @@ a:hover {
     .footer{
       font-size: 0.75rem;
    }
+
+   #login-container, #register-container {
+    padding: 20px;
+}
+#login-container h2, #register-container h2 {
+    font-size:28px;
+}
+.container h2 {
+    font-size:18px;
+}
+input {
+    padding: 10px;
+    font-size:14px;
+}
+button {
+    padding: 10px 15px;
+    font-size:14px;
+}
 }
