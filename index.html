@@ -25,17 +25,32 @@
     </div>
     
     <div id="register-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:url('image2.jpg') no-repeat center center fixed; background-size:cover; display:flex; justify-content:center; align-items:center; z-index:9999; opacity:0; animation:fadeIn 0.5s forwards;">
-      <h2 class="TopText" style="font-family: 'Alba'; font-size:36px; font-weight:600; color:#fff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2> 
+        <h2 class="TopText" style="font-family: 'Alba'; font-size:36px; font-weight:600; color:#fff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2> 
         <div style="background:#fff; padding:40px 30px; border-radius:12px; text-align:center; max-width:400px; width:90%; box-sizing:border-box; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
             <h2 style="font-size:20px; font-weight:600; margin-bottom:20px; color:#333;">You'll need to create an account to access Vinti Beta.</h2>
             <input type="email" id="email-register" placeholder="Email" style="margin-bottom:15px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
             <input type="password" id="password-register" placeholder="Password" style="margin-bottom:20px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
-            <button onclick="register()" style="background-color:#000; color:white; padding:12px 20px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:background-color 0.3s ease;">
+            <div style="margin-bottom:20px; text-align:left;">
+                <input type="checkbox" id="terms-checkbox" style="margin-right:10px;">
+                <label for="terms-checkbox" style="font-size:14px; color:#555;">
+                    I agree to the <a href="https://www.plingifyplug.com/account-storing" target="_blank" style="color:#007bff; text-decoration:none;">Terms & Conditions</a> regarding data storage.
+                </label>
+            </div>
+            <button id="continue-button" onclick="register()" style="background-color:#000; color:white; padding:12px 20px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:background-color 0.3s ease;" disabled>
                 Continue
             </button>
             <p style="margin-top:20px; font-size:14px; color:#555;">Already have an account? <a href="#" onclick="toggleForm('login')" style="color:#007bff; text-decoration:none;">Login here</a></p>
         </div>
     </div>
+    
+    <script>
+        // Enable the "Continue" button only if the checkbox is ticked
+        document.getElementById('terms-checkbox').addEventListener('change', function() {
+            const continueButton = document.getElementById('continue-button');
+            continueButton.disabled = !this.checked;
+        });
+    </script>
+    
     
     
     
@@ -100,7 +115,10 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-
+document.getElementById('terms-checkbox').addEventListener('change', function() {
+        const continueButton = document.getElementById('continue-button');
+        continueButton.disabled = !this.checked;
+    });
   </script>
 
 <script src="script.js"></script>
