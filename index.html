@@ -6,8 +6,57 @@
     <title>Vinti Beta</title>
     <link rel="icon" href="VintiLogo.png">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 </head>
 <body>
+
+    <div id="login-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:url('image2.jpg') no-repeat center center fixed; background-size:cover; display:flex; justify-content:center; align-items:center; z-index:9999;">
+        <h2 style="font-family: 'Alba', sans-serif; font-size:36px; font-weight:600; color:#fff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2>
+        <div style="background:#fff; padding:40px 30px; border-radius:12px; text-align:center; max-width:400px; width:100%; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+            <h2 style="font-size:20px; font-weight:600; margin-bottom:20px; color:#333;">You'll need to login to your account to access Vinti Beta.</h2>
+            <input type="email" id="email-login" placeholder="Email" style="margin-bottom:15px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
+            <input type="password" id="password-login" placeholder="Password" style="margin-bottom:20px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
+            <button onclick="signIn()" style="background-color:#000; color:white; padding:12px 20px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:background-color 0.3s ease;">
+                Continue
+            </button>
+            <p style="margin-top:20px; font-size:14px; color:#555;">Don't have an account? <a href="#" onclick="toggleForm('register')" style="color:#007bff; text-decoration:none;">Register here</a></p>
+        </div>
+    </div>
+    
+    <div id="register-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:url('image2.jpg') no-repeat center center fixed; background-size:cover; display:flex; justify-content:center; align-items:center; z-index:9999; opacity:0; animation:fadeIn 0.5s forwards;">
+        <h2 style="font-family: 'Alba', sans-serif; font-size:36px; font-weight:600; color:#fff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2>
+        <div style="background:#fff; padding:40px 30px; border-radius:12px; text-align:center; max-width:400px; width:100%; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+            <h2 style="font-size:20px; font-weight:600; margin-bottom:20px; color:#333;">You'll need to create an account to access Vinti Beta.</h2>
+            <input type="email" id="email-register" placeholder="Email" style="margin-bottom:15px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
+            <input type="password" id="password-register" placeholder="Password" style="margin-bottom:20px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
+            <button onclick="register()" style="background-color:#000; color:white; padding:12px 20px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:background-color 0.3s ease;">
+                Continue
+            </button>
+            <p style="margin-top:20px; font-size:14px; color:#555;">Already have an account? <a href="#" onclick="toggleForm('login')" style="color:#007bff; text-decoration:none;">Login here</a></p>
+        </div>
+    </div>
+    
+    <div id="auth-menu" style="position:fixed; top:10px; left:10px; z-index:1000;">
+        <button id="auth-button" onclick="toggleDropdown()" style="padding:10px 14px; border-radius:25px; color:black; font-size:24px; border:none; cursor:pointer; background:none; box-shadow:none; display:flex; justify-content:center; align-items:center; width:30px; height:30px;">
+            <img src="AccountLogo.png" alt="Account Logo" style="width:45px; height:45px; margin-top: 30px; margin-left: 30px; color: #e0e0e0;">
+        </button>
+        <div id="auth-dropdown" style="display:none; background:#fff; padding:10px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); width:160px; margin-top:30px; border:1px solid #e0e0e0;">
+            <button onclick="logout()" style="width:100%; padding:10px; border-radius:8px; background:#000; color:white; font-size:14px; border:none; cursor:pointer; margin-bottom:8px; transition:background-color 0.3s;">
+                Logout
+            </button>
+            <button onclick="deleteAccount()" style="width:100%; padding:10px; border-radius:8px; background:#ffffff; color:black; font-size:14px; border:none; cursor:pointer; transition:background-color 0.3s;">
+                Delete Account
+            </button>
+        </div>
+    </div>
+    
+    
+    
+    
+
+
+
 <div class="text-container">
     <div class="title-download">
         <h1 class="vinti-title">Vinti Beta</h1>
@@ -36,6 +85,22 @@
     </div>
 </div>
 <div id="background-slideshow"></div>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyASVwoxjL0ZHSF6kOIxGOMks1A-9NllUMw",
+  authDomain: "plingifyplug.firebaseapp.com",
+  projectId: "plingifyplug",
+  storageBucket: "plingifyplug.firebasestorage.app",
+  messagingSenderId: "198551817496",
+  appId: "1:198551817496:web:e7d84490321637448a226d",
+  measurementId: "G-15Q2QCQK72"
+};
+firebase.initializeApp(firebaseConfig);
+
+
+  </script>
+
 <script src="script.js"></script>
 </body>
 </html>
