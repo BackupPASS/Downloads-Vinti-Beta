@@ -74,18 +74,18 @@ function showPlatformNotification() {
     let downloadLink = '';
 
     if (userAgent.indexOf('Windows') !== -1) {
-        notification = createNotificationCard('windows', 'Windows Users', 'There is currently no available Beta version of Vinti.', null, 'https://plingifyplug.com');
+        notification = createNotificationCard('windows', 'Windows Users', 'There is currently no available Beta version of Vinti.', null, 'https://plingifyplug.com/VintiRequirements');
     } else if (userAgent.indexOf('Mac') !== -1 && userAgent.indexOf('iPhone') === -1) {
         downloadLink = 'https://www.mediafire.com/file/1on79om0c0zbmjx/Vinti_MacOS_Beta.app.zip/file';
-        notification = createNotificationCard('mac', 'Mac Users', 'Vinti MacOS Beta - MacOS BigSur 11.7.10+', downloadLink, 'https://plingifyplug.com');
+        notification = createNotificationCard('mac', 'Mac Users', 'Vinti MacOS Beta - MacOS BigSur 11.7.10+', downloadLink, 'https://plingifyplug.com/VintiRequirements');
     } else if (userAgent.indexOf('iPhone') !== -1) {
-        notification = createNotificationCard('iphone', 'iPhone Users', 'This software is not available for download on iPhone.', null, 'https://plingifyplug.com');
+        notification = createNotificationCard('iphone', 'iPhone Users', 'This software is not available for download on iPhone.', null, 'https://plingifyplug.com/VintiRequirements');
     } else if (userAgent.indexOf('Android') !== -1) {
-        notification = createNotificationCard('android', 'Android Users', 'This software is not available for download on Android.', null, 'https://plingifyplug.com');
+        notification = createNotificationCard('android', 'Android Users', 'This software is not available for download on Android.', null, 'https://plingifyplug.com/VintiRequirements');
     } else if (userAgent.indexOf('CrOS') !== -1) {
-        notification = createNotificationCard('chromebook', 'Chromebook Users', 'This software is not available for download on Chromebooks.', null, 'https://plingifyplug.com');
+        notification = createNotificationCard('chromebook', 'Chromebook Users', 'This software is not available for download on Chromebooks.', null, 'https://plingifyplug.com/VintiRequirements');
     } else if (userAgent.indexOf('Linux') !== -1 && userAgent.indexOf('Android') === -1) {
-        notification = createNotificationCard('linux', 'Linux Users', 'This software is not available for download on Linux.', null, 'https://plingifyplug.com');
+        notification = createNotificationCard('linux', 'Linux Users', 'This software is not available for download on Linux.', null, 'https://plingifyplug.com/VintiRequirements');
     } else {
         notification = createNotificationCard('unknown', 'Unsupported Device', 'This software is not available on your device.', null, null);
     }
