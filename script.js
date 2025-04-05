@@ -18,6 +18,98 @@ changeBackground(0);
 
 setInterval(nextBackground, 5000);
 
+        const loginContainer = document.getElementById('login-container');
+        const registerContainer = document.getElementById('register-container');
+        const authMenu = document.getElementById('auth-menu');
+        const pageContent = document.querySelector('.text-container');
+
+        function signIn() {
+            const email = document.getElementById("email-login").value.trim();
+            const password = document.getElementById("password-login").value.trim();
+
+            if (!email || !password) {
+                alert("Please enter both email and password.");
+                return;
+            }
+
+            firebase.auth().signInWithEmailAndPassword(email, password)
+                .catch((error) => {
+                    alert("Authentication error: " + error.message); 
+                });
+        }
+
+        function register() {
+            const email = document.getElementById("email-register").value.trim();
+            const password = document.getElementById("password-register").value.trim();
+
+            if (!email || !password) {
+                alert("Please enter both email and password.");
+                return;
+            }
+
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log("Account created successfully:", user);
+                    toggleForm('login');
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        }
+
+        function toggleForm(form) {
+            if (form === 'login') {
+                loginContainer.style.display = 'flex';
+                registerContainer.style.display = 'none';
+            } else {
+                registerContainer.style.display = 'flex';
+                loginContainer.style.display = 'none';
+            }
+        }
+
+        function logout() {
+            firebase.auth().signOut().then(() => location.reload());
+        }
+
+        function deleteAccount() {
+            const user = firebase.auth().currentUser;
+            if (user && confirm("Are you sure you want to delete your account? This can't be undone.")) {
+                user.delete().then(() => alert("Account deleted")).catch(err => alert(err.message));
+            }
+        }
+
+        firebase.auth().onAuthStateChanged(user => {
+            const authButton = document.getElementById('auth-button');
+            const dropdown = document.getElementById('auth-dropdown');
+            const loginContainer = document.getElementById('login-container');
+            const registerContainer = document.getElementById('register-container');
+            const authMenu = document.getElementById('auth-menu');
+            const pageContent = document.querySelector('.text-container');
+        
+            if (user) {
+                loginContainer.style.display = 'none';
+                registerContainer.style.display = 'none';
+                authMenu.style.display = 'block';
+                pageContent.style.display = 'flex';
+        
+                // Show the dropdown when the user is logged in
+                authButton.addEventListener('click', () => {
+                    const isDropdownVisible = dropdown.style.display === 'block';
+                    dropdown.style.display = isDropdownVisible ? 'none' : 'block';
+                });
+            } else {
+                loginContainer.style.display = 'flex'; // Show the login form
+                authMenu.style.display = 'none'; // Hide the auth menu
+                pageContent.style.display = 'none'; // Hide the main content
+            }
+        });
+        
+        
+
+
+
+
 const notificationContainer = document.getElementById('notification-container');
 let downloadBtn;
 
