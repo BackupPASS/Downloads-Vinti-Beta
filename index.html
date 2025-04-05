@@ -20,7 +20,8 @@
             <button onclick="signIn()" style="background-color:#000; color:white; padding:12px 20px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:background-color 0.3s ease;">
                 Continue
             </button>
-            <p style="margin-top:20px; font-size:14px; color:#555;">Don't have an account? <a href="#" onclick="toggleForm('register')" style="color:#007bff; text-decoration:none;">Register here</a></p>
+            <p style="margin-top:20px; font-size:14px; color:#555;">Don't have an account? <a href="#" onclick="toggleForm('register')" style="color:#007bff; text-decoration:none;">Create Account Here</a></p>
+           <p style="margin-top:20px; font-size:14px; color:#555;"> <a href="javascript:void(0);" id="reset-password-link" style="color:#007bff"; font-size:14px;>Forgot Password?</a> Just enter your email and click <b>Forgot Password</b></p>
         </div>
     </div>
     
@@ -33,7 +34,7 @@
             <div style="margin-bottom:20px; text-align:left;">
                 <input type="checkbox" id="terms-checkbox" style="margin-right:10px;">
                 <label for="terms-checkbox" style="font-size:14px; color:#555;">
-                    I agree to the <a href="https://www.plingifyplug.com/account-storing" target="_blank" style="color:#007bff; text-decoration:none;">Terms & Conditions</a> regarding data storage, Beta Software as well as PlingifyPlug's software in general..
+                    I agree to the <a href="https://www.plingifyplug.com/account-storing" target="_blank" style="color:#007bff; text-decoration:none;">Terms & Conditions</a> regarding data storage.
                 </label>
             </div>
             <button id="continue-button" onclick="register()" style="background-color:#000; color:white; padding:12px 20px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:background-color 0.3s ease;" disabled>
@@ -44,6 +45,7 @@
     </div>
     
     <script>
+        // Enable the "Continue" button only if the checkbox is ticked
         document.getElementById('terms-checkbox').addEventListener('change', function() {
             const continueButton = document.getElementById('continue-button');
             continueButton.disabled = !this.checked;
@@ -87,8 +89,7 @@
     <p>© 2025 PlingifyPlug. All rights reserved. | <a href="https://plingifyplug.com/">PlingifyPlug</a> | <a
             href="https://plingifyplug.com/contact-us">Support</a> | <a
             href="https://plingifyplug.com/privacy">Privacy Policy</a> | <a
-            href="https://backuppass.github.io/Downloads">Download Vinti</a> | <a
-            href="https://www.plingifyplug.com/account-storing">Account & Beta Terms</a></p>
+            href="https://backuppass.github.io/Downloads">Download Vinti</a></p>
 </footer>
 
 <div class="cookie-card" id="cookie-card">
