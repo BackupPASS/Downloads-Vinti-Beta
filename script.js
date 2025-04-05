@@ -105,7 +105,22 @@ setInterval(nextBackground, 5000);
             }
         });
         
+        document.getElementById('reset-password-link').addEventListener('click', function () {
+            const email = document.getElementById('email-login').value; // Fixed reference
+            if (!email) {
+                alert("Please enter your email first.");
+                return;
+            }
         
+            firebase.auth().sendPasswordResetEmail(email)
+                .then(() => {
+                    alert('Password reset email sent!');
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert(error.message);
+                });
+        });
 
 
 
