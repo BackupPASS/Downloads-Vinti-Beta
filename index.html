@@ -45,7 +45,6 @@
     </div>
     
     <script>
-        // Enable the "Continue" button only if the checkbox is ticked
         document.getElementById('terms-checkbox').addEventListener('change', function() {
             const continueButton = document.getElementById('continue-button');
             continueButton.disabled = !this.checked;
