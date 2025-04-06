@@ -183,8 +183,7 @@ function showPlatformNotification() {
     if (userAgent.indexOf('Windows') !== -1) {
         notification = createNotificationCard('windows', 'Windows Users', 'There is currently no available Beta version of Vinti.', null, 'https://plingifyplug.com/VintiRequirements');
     } else if (userAgent.indexOf('Mac') !== -1 && userAgent.indexOf('iPhone') === -1) {
-        downloadLink = 'https://github.com/BackupPASS/Downloads-Vinti-Beta/raw/refs/heads/main/Vinti+MacOS+Beta.app.zip';
-        notification = createNotificationCard('mac', 'Mac Users', 'Vinti MacOS Beta - MacOS BigSur 11.7.10+', downloadLink, 'https://plingifyplug.com/VintiRequirements');
+        notification = createNotificationCard('mac', 'Mac Users', 'There is currently no available Beta version of Vinti.', null, 'https://plingifyplug.com/VintiRequirements');
     } else if (userAgent.indexOf('iPhone') !== -1) {
         notification = createNotificationCard('iphone', 'iPhone Users', 'This software is not available for download on iPhone.', null, 'https://plingifyplug.com/VintiRequirements');
     } else if (userAgent.indexOf('Android') !== -1) {
