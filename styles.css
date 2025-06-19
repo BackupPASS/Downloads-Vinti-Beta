@@ -18,14 +18,14 @@ body {
   src: url('ALBAS___.TTF') format('truetype');
 }
 .text-container {
-    display: none;
+   display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    min-height: 100vh;
+   width: 100%;
+  min-height: 100vh;
     padding-top: 40px;
-    box-sizing: border-box;
-  }
+   box-sizing: border-box;
+}
 
 .title-download {
    font-family: Albas;
@@ -44,90 +44,119 @@ body {
     max-width: 500px;
   width: 100%;
 }
- .cookie-card {
-     max-width: 500px;
-     width: 90%;
-   padding: 1.2rem;
-   background-color: #fff;
-     border-radius: 8px;
-    box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
-    display: none;
-     position: fixed;
-    bottom: 20px;
-  left: 50%;
-     transform: translateX(-50%);
-     z-index: 1000;
-     text-align: center;
+.cookie-card {
+  max-width: 320px;
+  padding: 1rem;
+  
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: saturate(180%) blur(30px);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+  
+  border-radius: 15px;
+  
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  
+  display: none; 
+  
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  
+  z-index: 9999;
+  
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cookie-title {
+  
+  .title {
     font-weight: 600;
-    font-size: 1.1rem;
     color: rgb(31 41 55);
-    margin-bottom: 10px;
-}
-
-.cookie-description {
-    font-size: 0.9rem;
-  line-height: 1.4;
+  }
+  
+  .description {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
     color: rgb(75 85 99);
-   margin-bottom: 1rem;
-}
-
-.cookie-description a {
- color: rgb(59 130 246);
-}
-
-.cookie-description a:hover {
-   text-decoration: underline;
-}
-
-.cookie-actions {
-   display: flex;
-     justify-content: center;
-   margin-top: 1rem;
-}
-.pref {
+  }
+  
+  .description a {
+    color: rgb(59 130 246);
+  }
+  
+  .description a:hover {
+    text-decoration: underline;
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .pref {
     font-size: 0.75rem;
-   text-decoration: underline;
-     border: none;
+    line-height: 1rem;
+    color: rgb(31 41 55);
+    text-decoration: underline;
+    border: none;
     background-color: transparent;
-     color: rgb(31 41 55);
-  margin-right: 10px
-}
-
-.pref:hover {
-   color: rgb(156 163 175);
-}
- .accept-cookies {
-    font-size: 0.8rem;
-     font-weight: 500;
-     border-radius: 5px;
-   color: #fff;
-   padding: 0.6rem 1rem;
-  border: none;
-  background-color: rgb(17 24 39);
-}
-
-.accept-cookies:hover {
-     background-color: rgb(55 65 81);
-}
+  }
+  
+  .pref:hover {
+    color: rgb(156 163 175);
+  }
+  
+  .accept {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    background-color: rgb(17 24 39);
+    font-weight: 500;
+    border-radius: 0.5rem;
+    color: #fff;
+    padding: 0.625rem 1rem;
+    border: none;
+  }
+  
+  .accept:hover {
+    background-color: rgb(55 65 81);
+  }
 
 .card {
-   margin-top: 0.8rem;
-    max-width: 500px;
+  margin-top: 0.8rem;
+  max-width: 500px;
   width: 100%;
   display: flex;
-   align-items: flex-start;
-   background: #606c88;
-    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
-     background: linear-gradient(to right top, #3f4c6b, #606c88);
-     border-radius: 8px;
-    padding: 0.8rem;
-     color: rgb(107, 114, 128);
-     box-shadow: 0px 87px 78px -39px rgba(0, 0, 0, 0.4);
-   transition: transform 0.2s ease-in-out;
- box-sizing: border-box;
+  align-items: flex-start;
+  padding: 0.8rem;
+  box-sizing: border-box;
+
+  /* Liquid glass background */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: saturate(180%) blur(30px);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+
+  /* Rounded corners and shadows */
+  border-radius: 30px;
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+
+  /* Refraction wave filter like in .content */
+  filter: url(#wavyRefraction);
+
+  /* Optional: tone the text color up a bit for visibility */
+  color: rgb(255, 255, 255);
+
+  /* Transition for smooth hover or layout shifts */
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card:focus {
+   outline: none;
+   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
 }
  .card:hover {
    transform: translateY(-2px);
@@ -137,14 +166,34 @@ body {
 }
 .icon {
   height: 2rem;
-    width: 2rem;
-    flex-shrink: 0;
-   display: flex;
-   align-items: center;
-     justify-content: center;
-   border-radius: 6px;
-    background-color: #153586;
-   color: rgb(59, 130, 246);
+  width: 2rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Liquid glass-like background */
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: saturate(160%) blur(20px);
+  -webkit-backdrop-filter: saturate(160%) blur(20px);
+
+  /* Rounded and soft edges */
+  border-radius: 10px;
+
+  /* Soft inset glow and shadow to make it pop slightly */
+  box-shadow:
+    inset 0 0 2px rgba(255, 255, 255, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+
+  /* Icon color tuned for visibility */
+  color: rgba(240, 240, 255, 0.85);
+
+  /* Optional transition for hover/focus */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 .icon svg {
     height: 1.2rem;
@@ -168,52 +217,74 @@ body {
    line-height: 1.3;
 }
 .actions {
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   grid-template-columns: repeat(2, minmax(0, 1fr));
    gap: 0.6rem;
    margin-top: 12px;
 }
  .download,
 .notnow {
-   width: 100%;
-     display: inline-flex;
-   justify-content: center;
-    border-radius: 5px;
-    padding: 0.5rem 0.8rem;
-    text-align: center;
-    font-size: 0.8rem;
-  color: rgb(255, 255, 255);
-   outline: 2px solid transparent;
-    border: 1px solid rgba(253, 253, 253, 0.363);
-   transition: background-color 0.2s ease-in-out;
-}
-.download {
-   background-color: #284385;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: white;
   font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(40, 67, 133, 0.25);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+/* Download button hover */
 .download:hover {
-    background-color: #153586;
+  background: rgba(21, 53, 134, 0.35);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
+
+/* Not Now button */
 .notnow {
-   background-color: #606c88;
-   font-weight: 500;
+  background: rgba(96, 108, 136, 0.25);
+  font-weight: 500;
 }
+
+/* Not Now hover */
 .notnow:hover {
-   background-color: #3f4c6b;
+  background: rgba(63, 76, 107, 0.35);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
+
 
 .close {
    margin-left: auto;
     height: 1.8rem;
    width: 1.8rem;
    display: inline-flex;
-  border-radius: 5px;
-  background-color: #606c88;
+  border-radius: 15px;
+      background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: saturate(160%) blur(20px);
+  -webkit-backdrop-filter: saturate(160%) blur(20px);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
     padding: 0.2rem;
    color: rgba(255, 255, 255, 1);
    border: none;
      transition: background-color 0.2s ease-in-out;
+     color: rgba(116, 115, 115, 0.133);
 }
 
 .close svg {
@@ -221,29 +292,34 @@ body {
      width: 1.1rem;
 }
 .close:hover {
-   background-color: rgb(58, 69, 83);
+   background-color: rgb(184, 183, 183);
 }
  .footer {
-    color: #fff;
-    text-align: center;
-    padding: 2px 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    transition: height 0.3s ease-in-out;
-    border-radius: 35px 35px 0 0;
-    overflow: hidden;
-    backdrop-filter: blur(2px) saturate(200%);
-    -webkit-backdrop-filter: blur(2px) saturate(200%);
-    background-color: rgba(255, 255, 255, 0.23);
-    transition: background-color 0.3s ease;
-  }
-  
-  .footer a {
-    color: #fff;
-    text-decoration: none;
-  }
+  color: #fff;
+  text-align: center;
+  padding: 8px 0; 
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 35px 35px 0 0;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: saturate(180%) blur(30px);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+
+  transition: background-color 0.3s ease;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
  a {
      color: white;
   text-decoration: none;
