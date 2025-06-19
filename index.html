@@ -13,11 +13,11 @@
 
     <div id="login-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:url('image2.jpg') no-repeat center center fixed; background-size:cover; display:flex; justify-content:center; align-items:center; z-index:9999;">
         <h2 class="TopText" style="font-family: 'Alba', sans-serif; font-size:36px; font-weight:600; color:#fff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2>
-        <div style="background:#fff; padding:40px 30px; border-radius:12px; text-align:center; max-width:400px; width:90%; box-sizing:border-box; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-            <h2 style="font-size:20px; font-weight:600; margin-bottom:20px; color:#333;">You'll need to login to your account to access Vinti Beta.</h2>
-            <input type="email" id="email-login" placeholder="Email" style="margin-bottom:15px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
-            <input type="password" id="password-login" placeholder="Password" style="margin-bottom:20px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
-            <button onclick="signIn()" style="background-color:#000; color:white; padding:12px 20px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:background-color 0.3s ease;">
+        <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: saturate(180%) blur(30px); -webkit-backdrop-filter: saturate(180%) blur(30px); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.18); transition: background-color 0.3s ease; color:black; font-size:14px; border:none; cursor:pointer; transition:background-color 0.3s; padding:40px 30px; border-radius:30px; text-align:center; max-width:400px; width:90%; box-sizing:border-box; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+            <h2 style="font-size:20px; font-weight:600; margin-bottom:20px; color:#ffffff;">You'll need to login to your account to access Vinti Beta.</h2>
+            <input type="email" id="email-login" placeholder="Email" style="margin-bottom:15px; width:100%; padding:12px; font-size:16px; border:1px solid rgba(255,255,255,0.4); border-radius:8px; box-sizing:border-box; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px) saturate(160%); -webkit-backdrop-filter:blur(10px) saturate(160%); color:#fff;">
+<input type="password" id="password-login" placeholder="Password" style="margin-bottom:20px; width:100%; padding:12px; font-size:16px; border:1px solid rgba(255,255,255,0.4); border-radius:8px; box-sizing:border-box; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px) saturate(160%); -webkit-backdrop-filter:blur(10px) saturate(160%); color:#fff;">
+            <button onclick="signIn()" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: saturate(180%) blur(30px); -webkit-backdrop-filter: saturate(180%) blur(30px); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.18); transition: background-color 0.3s ease; color:black; font-size:14px; border:none; cursor:pointer; transition:background-color 0.3s; color:white; padding:12px 20px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:background-color 0.3s ease;">
                 Continue
             </button>
             <p style="margin-top:20px; font-size:14px; color:#555;">Don't have an account? <a href="#" onclick="toggleForm('register')" style="color:#007bff; text-decoration:none;">Create Account Here</a></p>
@@ -26,18 +26,18 @@
     </div>
     
     <div id="register-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:url('image2.jpg') no-repeat center center fixed; background-size:cover; display:flex; justify-content:center; align-items:center; z-index:9999; opacity:0; animation:fadeIn 0.5s forwards;">
-        <h2 class="TopText" style="font-family: 'Alba'; font-size:36px; font-weight:600; color:#fff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2> 
-        <div style="background:#fff; padding:40px 30px; border-radius:12px; text-align:center; max-width:400px; width:90%; box-sizing:border-box; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-            <h2 style="font-size:20px; font-weight:600; margin-bottom:20px; color:#333;">You'll need to create an account to access Vinti Beta.</h2>
-            <input type="email" id="email-register" placeholder="Email" style="margin-bottom:15px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
-            <input type="password" id="password-register" placeholder="Password" style="margin-bottom:20px; width:100%; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; background-color:#f9f9f9;">
-            <div style="margin-bottom:20px; text-align:left;">
-                <input type="checkbox" id="terms-checkbox" style="margin-right:10px;">
-                <label for="terms-checkbox" style="font-size:14px; color:#555;">
-                    I agree to the <a href="https://www.plingifyplug.com/privacy" target="_blank" style="color:#007bff; text-decoration:none;">Terms & Conditions</a> regarding data storage.
-                </label>
-            </div>
-            <button id="continue-button" onclick="register()" style="background-color:#000; color:white; padding:12px 20px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:background-color 0.3s ease;" disabled>
+        <h2 class="TopText" style="font-family: 'Alba'; font-size:36px; font-weight:600; color:#ffffff; position:absolute; top:50px; text-align:center; width:100%;">Vinti Beta Downloads</h2> 
+        <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: saturate(180%) blur(30px); -webkit-backdrop-filter: saturate(180%) blur(30px); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.18); transition: background-color 0.3s ease; color:black; font-size:14px; border:none; cursor:pointer; transition:background-color 0.3s; padding:40px 30px; border-radius:30px; text-align:center; max-width:400px; width:90%; box-sizing:border-box; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+            <h2 style="font-size:20px; font-weight:600; margin-bottom:20px; color:#ffffff;">You'll need to create an account to access Vinti Beta.</h2>
+           <input type="email" id="email-register" placeholder="Email" style="margin-bottom:15px; width:100%; padding:12px; font-size:16px; border:1px solid rgba(255,255,255,0.4); border-radius:8px; box-sizing:border-box; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px) saturate(160%); -webkit-backdrop-filter:blur(10px) saturate(160%); color:#fff;">
+<input type="password" id="password-register" placeholder="Password" style="margin-bottom:20px; width:100%; padding:12px; font-size:16px; border:1px solid rgba(255,255,255,0.4); border-radius:8px; box-sizing:border-box; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px) saturate(160%); -webkit-backdrop-filter:blur(10px) saturate(160%); color:#fff;">
+<div style="margin-bottom:20px; text-align:left;">
+  <input type="checkbox" id="terms-checkbox" style="margin-right:10px; width:16px; height:16px; accent-color:rgba(255,255,255,0.3); background:rgba(255,255,255,0.15); backdrop-filter:blur(6px) saturate(160%); border-radius:4px; border:1px solid rgba(255,255,255,0.4);">
+  <label for="terms-checkbox" style="font-size:14px; color:#555;">
+    I agree to the <a href="https://www.plingifyplug.com/privacy" target="_blank" style="color:#007bff; text-decoration:none;">Terms & Conditions</a> regarding data storage.
+  </label>
+</div>
+            <button id="continue-button" onclick="register()" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: saturate(180%) blur(30px); -webkit-backdrop-filter: saturate(180%) blur(30px); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.18); transition: background-color 0.3s ease; color:black; font-size:14px; border:none; cursor:pointer; transition:background-color 0.3s; color:white; padding:12px 20px; width:100%; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:background-color 0.3s ease;" disabled>
                 Continue
             </button>
             <p style="margin-top:20px; font-size:14px; color:#555;">Already have an account? <a href="#" onclick="toggleForm('login')" style="color:#007bff; text-decoration:none;">Login here</a></p>
@@ -58,11 +58,11 @@
         <button id="auth-button" onclick="toggleDropdown()" style="padding:10px 14px; border-radius:25px; color:black; font-size:24px; border:none; cursor:pointer; background:none; box-shadow:none; display:flex; justify-content:center; align-items:center; width:30px; height:30px;">
             <img src="AccountLogo.png" alt="Account Logo" style="width:45px; height:45px; margin-top: 30px; margin-left: 30px; color: #e0e0e0;">
         </button>
-        <div id="auth-dropdown" style="display:none; background:#fff; padding:10px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); width:160px; margin-top:30px; border:1px solid #e0e0e0;">
-            <button onclick="logout()" style="width:100%; padding:10px; border-radius:8px; background:#000; color:white; font-size:14px; border:none; cursor:pointer; margin-bottom:8px; transition:background-color 0.3s;">
+        <div id="auth-dropdown" style="display:none;   background: rgba(255, 255, 255, 0.15); backdrop-filter: saturate(180%) blur(30px); -webkit-backdrop-filter: saturate(180%) blur(30px);  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.18); transition: background-color 0.3s ease; padding:10px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); width:160px; margin-top:30px; border:1px solid #e0e0e0;">
+            <button onclick="logout()" style="width:100%; padding:10px; border-radius:8px;   background: rgba(159, 159, 159, 0.552); backdrop-filter: saturate(180%) blur(30px); -webkit-backdrop-filter: saturate(180%) blur(30px); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.18);transition: background-color 0.3s ease; color:white; font-size:14px; border:none; cursor:pointer; margin-bottom:8px; transition:background-color 0.3s;">
                 Logout
             </button>
-            <button onclick="deleteAccount()" style="width:100%; padding:10px; border-radius:8px; background:#ffffff; color:black; font-size:14px; border:none; cursor:pointer; transition:background-color 0.3s;">
+            <button onclick="deleteAccount()" style="width:100%; padding:10px; border-radius:8px;   background: rgba(255, 255, 255, 0.15); backdrop-filter: saturate(180%) blur(30px); -webkit-backdrop-filter: saturate(180%) blur(30px); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.18); transition: background-color 0.3s ease; color:black; font-size:14px; border:none; cursor:pointer; transition:background-color 0.3s;">
                 Delete Account
             </button>
         </div>
@@ -91,15 +91,14 @@
             href="https://backuppass.github.io/Downloads">Download Vinti</a></p>
 </footer>
 
-<div class="cookie-card" id="cookie-card">
-    <span class="cookie-title">🍪 Cookie Notice</span>
-    <p class="cookie-description">We use cookies to ensure that we give you the best experience on our website. <a
-            href="https://www.plingifyplug.com/privacy">Read cookies policies</a>. </p>
-    <div class="cookie-actions">
-        <button class="accept-cookies" id="accept-cookies">
-            Accept
-        </button>
-    </div>
+      <div class="cookie-card" id="cookie-card">
+      <span class="title">🍪 Cookie Notice</span>
+        <p class="description">We use cookies to ensure that we give you the best experience on our website. <a href="https://www.plingifyplug.com/privacy">Read cookies policies</a>. </p>
+          <div class="actions">
+            <button class="accept" id="accept-cookies">
+              Accept
+            </button>
+      </div>
 </div>
 <div id="background-slideshow"></div>
 
